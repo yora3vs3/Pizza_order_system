@@ -1,0 +1,39 @@
+<h1>Current Order</h1>
+
+<!-- Display the details of the current order -->
+<div class="order-details">
+  <h2>Order Details</h2>
+  <ul id="pizza-list">
+    <!-- Pizza details will be dynamically populated here -->
+  </ul>
+  <p>Total Price: <span id="total-price"></span></p>
+</div>
+
+<!-- Display the status of the current order -->
+<div class="order-status">
+  <h2>Order Status</h2>
+  <p id="status-message"></p>
+</div>
+
+<script>
+  // Simulated data for the current order details and status
+  const pizzaList = [
+    { name: 'Pizza 1', price: 10 },
+    { name: 'Pizza 2', price: 12 },
+    { name: 'Pizza 3', price: 15 },
+  ];
+  const total = pizzaList.reduce((sum, pizza) => sum + pizza.price, 0);
+  const orderStatus = 'Order accepted and in production';
+
+  // Display the details of the current order
+  const pizzaListElement = document.getElementById('pizza-list');
+  pizzaList.forEach(pizza => {
+    const li = document.createElement('li');
+    li.innerText = `${pizza.name} - $${pizza.price}`;
+    pizzaListElement.appendChild(li);
+  });
+  document.getElementById('total-price').innerText = `$${total}`;
+
+  // Display the status of the current order
+  document.getElementById('status-message').innerText = orderStatus;
+</script>

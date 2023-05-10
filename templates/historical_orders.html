@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+</head>
+<body>
+  <h1>Order Page</h1>
+
+  <!-- Other content on the order page -->
+
+  <button onclick="location.href='{% url 'order_app:history_order' %}'">History Order</button>
+  <!-- Other buttons or elements on the order page -->
+
+  <hr>
+
+  <h1>Historical Orders</h1>
+
+  <!-- Display the details of historical orders -->
+  <div class="order-history">
+    <h2>Order History</h2>
+    <ul id="order-list">
+      <!-- Historical order details will be dynamically populated here -->
+      <li>Pizza A - Quantity: 2, Price: $20</li>
+      <li>Pizza B - Quantity: 1, Price: $12</li>
+      <li>Pizza C - Quantity: 3, Price: $30</li>
+    </ul>
+  </div>
+
+  <!-- history_order.html -->
+  <h1>History Order</h1>
+
+  <!-- Date index to search for orders -->
+  <div class="date-index">
+    <input type="date" id="search-date">
+    <button onclick="searchOrders()">Search</button>
+  </div>
+
+  <!-- Display the list of past order dates -->
+  <div class="past-dates">
+    <h2>Past Order Dates</h2>
+    <ul>
+      <li>Date 1</li>
+      <li>Date 2</li>
+      <!-- Add more list items for each past order date -->
+    </ul>
+  </div>
+
+  <!-- Display the specific order information for the selected date -->
+  <div class="specific-order">
+    <h2>Specific Order</h2>
+    <!-- Display the order details here -->
+  </div>
+
+  <script>
+    function searchOrders() {
+      // Code to handle the search functionality based on the entered date
+      // and display the specific order information
+    }
+  </script>
+
+  <script>
+    // Simulated data for historical orders
+    const historicalOrders = [
+      { pizzaName: 'Pizza A', quantity: 2, price: 20 },
+      { pizzaName: 'Pizza B', quantity: 1, price: 12 },
+      { pizzaName: 'Pizza C', quantity: 3, price: 30 },
+    ];
+
+    // Display the details of historical orders
+    const orderListElement = document.getElementById('order-list');
+    historicalOrders.forEach(order => {
+      const li = document.createElement('li');
+      li.innerText = `${order.pizzaName} - Quantity: ${order.quantity}, Price: $${order.price}`;
+      orderListElement.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>

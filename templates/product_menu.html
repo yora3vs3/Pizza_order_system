@@ -1,0 +1,12 @@
+<h1>Product Menu</h1>
+
+<!-- Display products -->
+{% for product in products %}
+  <div class="product">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Power: {{ product.power }}</p>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <button onclick="location.href='{% url 'product_app:shopping_cart_order' %}'">Add to Cart</button>
+  </div>
+{% endfor %}

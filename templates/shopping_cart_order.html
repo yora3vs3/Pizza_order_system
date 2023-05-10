@@ -1,0 +1,14 @@
+<h1>Shopping Cart Order</h1>
+
+<!-- Display order items -->
+{% for order_item in order_items %}
+  <div class="order-item">
+    <h2>{{ order_item.product.name }}</h2>
+    <p>Quantity: {{ order_item.quantity }}</p>
+    <!-- Display additional details as needed -->
+  </div>
+{% endfor %}
+
+<!-- Buttons for order confirmation and cancellation -->
+<button onclick="location.href='{% url 'product_app:confirm_order' %}'">Confirm</button>
+<button onclick="location.href='{% url 'product_app:cancel_order' %}'">Cancel</button>

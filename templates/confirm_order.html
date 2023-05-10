@@ -1,0 +1,13 @@
+<h1>Submit Order</h1>
+
+<!-- Form for order submission -->
+<form method="POST" action="{% url 'product_app:submit_order' %}">
+  {% csrf_token %}
+  <!-- Include necessary fields for order information -->
+  <!-- Example field -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <button type="submit">Confirm</button>
+  <button onclick="location.href='{% url 'product_app:product_menu' %}'">Cancel</button>
+</form>
